@@ -163,6 +163,18 @@ async def move(interaction: discord.Interaction, move: str):
     else:
         await interaction.response.send_message(f"{move} is an invalid move!")
 
+@bot.tree.command(name="showboard", description="Show the current position on the board.")
+async def showboard(interaction: discord.Interaction):
+    uid = str(interaction.user.id)
+    if os.path.isfile(f"./outputs/{uid}.png"):
+        embed = discord.Embed(title="Current Position")
+        file = discord.File(f"./outputs/{uid}.png", f"{uid}.png")
+        await interaction.response.send_message(file=file, embed=embed, ephemeral=True)
+    else:
+        await interaction.response.send_message("Error! Please try again!", ephemeral=True) 
+
+
+
 @bot.event
 async def on_ready():
     try:
