@@ -103,7 +103,7 @@ async def newgame(interaction: discord.Interaction, move: str):
         embed = discord.Embed(title=f"***I play {bestmove} Your turn!***")
         embed.set_image(url=f"attachment://{uid}.png")
 
-        await interaction.response.send_message(file=file, embed=embed)
+        await interaction.response.send_message(file=file, embed=embed, ephemeral=True)
     else:
         await interaction.response.send_message("Error! Please try again!")
 
@@ -157,7 +157,7 @@ async def move(interaction: discord.Interaction, move: str):
             if stockfish.get_best_move() == None:
                 embed.title = "I Won! Good game!"
                 print(stockfish.get_evaluation())
-            await interaction.response.send_message(file=file, embed=embed)
+            await interaction.response.send_message(file=file, embed=embed, ephemeral=True)
         else:
             await interaction.response.send_message("Error! Please try again!")        
     else:
