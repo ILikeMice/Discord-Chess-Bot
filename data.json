@@ -2,6 +2,10 @@
    "Users": {
       "User": {
          "currentpos": []
+      },
+      "771786441617047582": {
+         "currentpos": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b - - 1 3",
+         "color": "b"
       }
    }
 }
